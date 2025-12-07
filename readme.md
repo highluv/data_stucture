@@ -97,6 +97,9 @@ project_root/
      - handleFileError(code)
    - Технические функции:
      - generateId()
+     - readLine()
+     - writeLineToFile()
+     - addToArray()
      - parseContactFromString(line)
      - serializeContactToString(contact)
 
