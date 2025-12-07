@@ -1,4 +1,4 @@
-@startuml
+@startuml sequence_for_data
 actor Пользователь as User
 participant "Меню" as Menu
 participant "Контроллер сохранения" as SaveController

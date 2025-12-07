@@ -1,4 +1,4 @@
-@startuml
+@startuml activity_for_data
 start
 
 :Запуск программы;
