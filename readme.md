@@ -78,6 +78,27 @@ project_root/
 ```
 
 ## Реализация
+Функции для реализации бизнес-логики:
+- inputContact() - ввод котакта
+- printContacts() - вывод всех котактов
+- saveToFile(filename, mode) - сохранение в файл
+- loadFromFile(filename) - загрузка из файла
+
+Функции для реализации НФТ:
+  - Валидация полей Contact:
+     - validateName(string)
+     - validatePhone(string) 
+     - validateBirthday(string)
+     - validateAge(int) 
+     - validateCategory(string)
+  - Обработка ошибок работы с файлами:
+     - fileExists(filename)
+     - openFile(filename, mode)
+     - handleFileError(code)
+   - Технические функции:
+     - generateId()
+     - parseContactFromString(line)
+     - serializeContactToString(contact)
 
 Требования к полям:
 - Поле id является уникальным идентификатором записи, назначается автоматически функцией generateId() и не зависит от пользовательского ввода. Уникальный ключ не должен зависеть от способа хранения.
