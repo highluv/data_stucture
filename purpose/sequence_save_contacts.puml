@@ -1,0 +1,39 @@
+@startuml sequence_for_data
+actor Пользователь as User
+participant "Меню" as Menu
+participant "Контроллер сохранения" as SaveController
+participant "Модуль работы с файлами" as FileIO
+database "Файл контактов" as File
+
+User -> Menu: Выбор пункта «Сохранить контакты»
+Menu -> SaveController: saveContacts()
+
+SaveController -> User: Запрос имени файла
+User --> SaveController: filename
+
+SaveController -> User: Выбор режима?\n1 — новый файл\n2 — добавить
+User --> SaveController: режим (mode)
+
+alt Режим: Создать новый файл (mode = 1)
+    SaveController -> FileIO: createNewFile(filename)
+    FileIO -> File: Открыть файл в режиме создания
+    FileIO -> File: Перезаписать файл\n(сохранить все записи)
+    FileIO --> SaveController: успех/ошибка
+
+else Режим: Добавить в существующий (mode = 2)
+    User -> SaveController: filename
+    SaveController -> FileIO: writeLineToFile(filename)
+    
+    alt Файл существует
+        FileIO -> File: Открыть файл в режиме append
+        FileIO -> File: Добавить новые записи\nв конец файла
+        FileIO --> SaveController: успех/ошибка
+    else Файл отсутствует
+        FileIO --> SaveController: Ошибка: файл не найден
+        SaveController -> User: Сообщить об ошибке
+    end
+end
+
+SaveController -> User: Сообщить об успешном завершении\nили ошибке
+
+@enduml

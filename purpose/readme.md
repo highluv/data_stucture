@@ -79,8 +79,8 @@ project_root/
 
 ## Functional Specification
 Функции для реализации бизнес-логики:
-- inputContact() - ввод котакта
-- printContacts() - вывод всех котактов
+- inputContact() - ввод котакта. 
+- printContacts() - вывод всех котактов.
 - saveToFile(filename, mode) - сохранение в файл
 - loadFromFile(filename) - загрузка из файла
 
@@ -94,6 +94,7 @@ project_root/
   - Обработка ошибок работы с файлами:
      - fileExists(filename)
      - openFile(filename, mode)
+     - createNewFile(filename)
      - handleFileError(code)
    - Технические функции:
      - generateId()
@@ -117,7 +118,7 @@ inputContact()
 printContacts()
 
 saveToFile()
- ├─ openFile(filename, mode)
+ ├─ openFile(filename, mode)/createNewFile(filename)
  │    └─ handleFileError()
  ├─ serializeContactToString()
  └─ writeLineToFile()
