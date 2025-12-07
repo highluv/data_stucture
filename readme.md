@@ -101,6 +101,7 @@ project_root/
      - serializeContactToString(contact)
 
 Иерархия вызовов:
+```
 inputContact()
  ├─ validateName()
  ├─ validatePhone()
@@ -110,6 +111,29 @@ inputContact()
  ├─ generateId()
  └─ addToArray()
 
+printContacts()
+ └─ formatContactForOutput()   (опционально)
+
+saveToFile()
+ ├─ openFile(filename, mode)
+ │    └─ handleFileError()
+ ├─ serializeContactToString()
+ └─ writeLineToFile()
+
+loadFromFile()
+ ├─ fileExists(filename)
+ │    └─ handleFileError()
+ ├─ openFile(filename, READ)
+ │    └─ handleFileError()
+ ├─ readLine()
+ ├─ parseContactFromString()
+ │    ├─ validateName()
+ │    ├─ validatePhone()
+ │    ├─ validateBirthday()
+ │    ├─ validateAge()
+ │    └─ validateCategory()
+ └─ addToArray()
+```
 
 
 Требования к полям:
