@@ -112,7 +112,6 @@ inputContact()
  └─ addToArray()
 
 printContacts()
- └─ formatContactForOutput()   (опционально)
 
 saveToFile()
  ├─ openFile(filename, mode)
