@@ -1,0 +1,12 @@
+@startuml erd_contact
+entity "Contact" as Contact {
+    * id : int
+    --
+    name : string
+    category : string
+    birthday : string
+    age : int
+    phone : string
+    deleted : bool
+}
+@enduml

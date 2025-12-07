@@ -1,0 +1,28 @@
+@startuml dfd
+skinparam style strict
+
+' Определяем внешнего актёра
+actor "Пользователь" as User
+
+' Центральный процесс системы
+process "Система управления контактами" as System
+
+' Хранилища
+database "Массив контактов\n(в оперативной памяти)" as Memory
+database "Файл контактов\n(text file)" as File
+
+' Потоки данных
+User --> System : Ввод данных контакта\n(клавиатура)
+System --> Memory : Создание/изменение записей
+
+User --> System : Запрос списка контактов
+System --> User : Вывод массива на экран
+
+User --> System : Команда: сохранить файл
+System --> File : Запись контактов\n(новый или append)
+
+User --> System : Команда: загрузить файл
+File --> System : Данные из файла
+System --> Memory : Заполнение массива
+
+@enduml
