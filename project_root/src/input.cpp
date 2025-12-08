@@ -2,12 +2,23 @@
 #include <string>
 #include "input.h"
 
+int generateId() {
+    int maxId = 0;
+
+    for (int i = 0; i < contactsCount; i++) {
+        if (contacts[i].id > maxId) {
+            maxId = contacts[i].id;
+        }
+    }
+
+    return maxId + 1;
+}
+
+
 Contact inputContact() {
     Contact c;
 
-    std::cout << "Input contacts id: ";
-    std::cin >> c.id;
-    std::cin.ignore(); 
+    c.id = generateId();
 
     std::cout << "Input contacts name: ";
     std::getline(std::cin, c.name);
@@ -28,3 +39,5 @@ Contact inputContact() {
     c.deleted = false;
     return c;
 }
+
+

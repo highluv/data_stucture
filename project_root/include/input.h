@@ -3,6 +3,7 @@
 
 #include "contact.h"
 
-Contact inputContact();  // объявление
+Contact inputContact();  
+int generateId();
 
 #endif
