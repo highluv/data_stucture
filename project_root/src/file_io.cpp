@@ -49,7 +49,7 @@ bool loadFromFile(const std::string& filename) {
         std::cout << "Cannot open file!\n";
         return false;
     }
-
+    contactsCount = 0;
     std::string line;
 
     while (std::getline(file, line)) {
